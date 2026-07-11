@@ -9,12 +9,12 @@ interface CalculatorSectionProps {
 }
 
 export default function CalculatorSection({ onOpenConsultation }: CalculatorSectionProps) {
-  const [selectedProgramId, setSelectedProgramId] = useState<string>('classic');
-  const [selectedRoomId, setSelectedRoomId] = useState<string>('comfort');
+  const [selectedRoomId] = useState<string>('standard');
   const [durationDays, setDurationDays] = useState<number>(28);
 
-  const selectedProgram = PROGRAMS.find(p => p.id === selectedProgramId) || PROGRAMS[1];
-  const selectedRoom = ROOMS.find(r => r.id === selectedRoomId) || ROOMS[1];
+  // Только одна программа — выбор больше не требуется
+  const selectedProgram = PROGRAMS.find(p => p.id === 'classic') || PROGRAMS[1];
+  const selectedRoom = ROOMS.find(r => r.id === 'standard') || ROOMS[0];
 
   // Duration Multipliers & Labels
   const durations = [
@@ -76,36 +76,17 @@ export default function CalculatorSection({ onOpenConsultation }: CalculatorSect
                 <span className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center">1</span>
                 Выберите направление терапии
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {PROGRAMS.map((prog) => (
-                  <button
-                    key={prog.id}
-                    onClick={() => {
-                      setSelectedProgramId(prog.id);
-                      // Set default duration for this program
-                      if (prog.id === 'detox') setDurationDays(7);
-                      else if (prog.id === 'comprehensive') setDurationDays(90);
-                      else setDurationDays(28);
-                    }}
-                    className={`text-left p-5 rounded-xl border transition-all flex flex-col justify-between h-full cursor-pointer ${selectedProgramId === prog.id
-                        ? 'border-emerald-500 bg-emerald-950/10 shadow-lg shadow-emerald-950/10'
-                        : 'border-stone-800 bg-stone-900/30 hover:border-stone-700'
-                      }`}
-                  >
-                    <div>
-                      <div className="flex justify-between items-start mb-2">
-                        <span className="font-bold text-sm md:text-base text-white">{prog.name}</span>
-                        {selectedProgramId === prog.id && (
-                          <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-                        )}
-                      </div>
-                      <p className="text-xs text-stone-400 leading-normal mb-4">{prog.description}</p>
-                    </div>
-                    <div className="text-xs font-mono font-bold text-emerald-400">
-                      от {prog.basePrice.toLocaleString('ru-RU')} ₸ / мес
-                    </div>
-                  </button>
-                ))}
+              <div className="p-5 rounded-xl border border-emerald-500 bg-emerald-950/10 shadow-lg shadow-emerald-950/10 flex flex-col justify-between">
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="font-bold text-sm md:text-base text-white">{selectedProgram.name}</span>
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                  </div>
+                  <p className="text-xs text-stone-400 leading-normal mb-4">{selectedProgram.description}</p>
+                </div>
+                <div className="text-xs font-mono font-bold text-emerald-400">
+                  от {selectedProgram.basePrice.toLocaleString('ru-RU')} ₸ / мес
+                </div>
               </div>
             </div>
 
@@ -115,30 +96,17 @@ export default function CalculatorSection({ onOpenConsultation }: CalculatorSect
                 <span className="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 text-xs font-mono font-bold flex items-center justify-center">2</span>
                 Условия проживания
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {ROOMS.map((room) => (
-                  <button
-                    key={room.id}
-                    onClick={() => setSelectedRoomId(room.id)}
-                    className={`text-left p-5 rounded-xl border transition-all flex flex-col justify-between h-full cursor-pointer ${selectedRoomId === room.id
-                        ? 'border-emerald-500 bg-emerald-950/10 shadow-lg shadow-emerald-950/10'
-                        : 'border-stone-800 bg-stone-900/30 hover:border-stone-700'
-                      }`}
-                  >
-                    <div>
-                      <div className="flex justify-between items-start mb-2">
-                        <span className="font-bold text-sm text-white">{room.name}</span>
-                        {selectedRoomId === room.id && (
-                          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                        )}
-                      </div>
-                      <p className="text-xs text-stone-400 leading-normal mb-4">{room.description}</p>
-                    </div>
-                    <div className="text-xs font-semibold text-emerald-400 font-mono">
-                      {room.priceMultiplier === 1.0 ? 'Стандартная цена' : `+${Math.round((room.priceMultiplier - 1) * 100)}% к базе`}
-                    </div>
-                  </button>
-                ))}
+              <div className="p-5 rounded-xl border border-emerald-500 bg-emerald-950/10 shadow-lg shadow-emerald-950/10 flex flex-col justify-between">
+                <div>
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="font-bold text-sm text-white">{selectedRoom.name}</span>
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  </div>
+                  <p className="text-xs text-stone-400 leading-normal mb-4">{selectedRoom.description}</p>
+                </div>
+                <div className="text-xs font-semibold text-emerald-400 font-mono">
+                  {selectedRoom.priceMultiplier === 1.0 ? 'Стандартная цена' : `+${Math.round((selectedRoom.priceMultiplier - 1) * 100)}% к базе`}
+                </div>
               </div>
             </div>
 
@@ -154,8 +122,8 @@ export default function CalculatorSection({ onOpenConsultation }: CalculatorSect
                     key={dur.days}
                     onClick={() => setDurationDays(dur.days)}
                     className={`py-3 px-5 text-xs md:text-sm font-semibold rounded-xl border transition-all cursor-pointer ${durationDays === dur.days
-                        ? 'bg-emerald-600 border-emerald-500 text-white shadow-md'
-                        : 'bg-stone-900/30 border-stone-800 text-stone-400 hover:text-white hover:border-stone-700'
+                      ? 'bg-emerald-600 border-emerald-500 text-white shadow-md'
+                      : 'bg-stone-900/30 border-stone-800 text-stone-400 hover:text-white hover:border-stone-700'
                       }`}
                   >
                     {dur.label}

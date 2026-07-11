@@ -21,7 +21,8 @@ import {
   HeartHandshake,
   ArrowRight,
   ShieldAlert,
-  Home
+  Home,
+  User
 } from 'lucide-react';
 
 export default function App() {
@@ -366,12 +367,9 @@ export default function App() {
               >
                 <div>
                   <div className="relative">
-                    <img
-                      src={member.photoUrl}
-                      alt={member.name}
-                      className="w-full h-64 object-cover"
-                      referrerPolicy="no-referrer"
-                    />
+                    <div className="w-full h-64 bg-stone-800 flex items-center justify-center">
+                      <User className="w-16 h-16 text-stone-600" strokeWidth={1.5} />
+                    </div>
                     <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-bg-primary/90 to-transparent" />
                     <div className="absolute bottom-4 left-4">
                       <span className="text-[10px] text-accent font-mono font-bold uppercase tracking-wider bg-bg-primary border border-border-custom px-2.5 py-1">
@@ -496,10 +494,10 @@ export default function App() {
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <a
-              href="tel:88000803942"
+              href="tel:+77711272125"
               className="w-full sm:w-auto bg-red-600 hover:bg-red-500 text-bg-primary font-bold py-4.5 px-8 transition-all flex items-center justify-center gap-2 border border-red-600 text-base md:text-lg uppercase tracking-wider"
             >
-              <PhoneCall className="w-5 h-5 animate-pulse" /> 8 (800) 080-39-42
+              <PhoneCall className="w-5 h-5 animate-pulse" /> +7 (771) 127-21-25
             </a>
             <button
               onClick={() => openConsultation('Заявка на срочный выезд помощи 24/7 с футера')}

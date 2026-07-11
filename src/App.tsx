@@ -1,3 +1,5 @@
+import heroImage from './assets/images/family_rehub_hero_1783502231845.jpg';
+import therapyImage from './assets/images/family_rehub_therapy_1783502249013.jpg';
 import React, { useState } from 'react';
 import Header from './components/Header';
 import TestSection from './components/TestSection';
@@ -130,7 +132,7 @@ export default function App() {
               <div className="absolute inset-0 bg-accent/5 blur-2xl pointer-events-none" />
               <div className="relative bg-bg-secondary border border-border-custom p-4 overflow-hidden group">
                 <img
-                  src="/src/assets/images/family_rehub_hero_1783502231845.jpg"
+                  src={heroImage}
                   alt="FAMILY REHUB Загородный коттедж в лесу"
                   className="w-full h-[300px] sm:h-[380px] object-cover transition-all duration-700 group-hover:scale-102"
                   referrerPolicy="no-referrer"
@@ -186,7 +188,7 @@ export default function App() {
             <div className="lg:col-span-5 relative order-last lg:order-first">
               <div className="relative bg-bg-secondary border border-border-custom p-4 overflow-hidden group">
                 <img
-                  src="/src/assets/images/family_rehub_therapy_1783502249013.jpg"
+                  src={therapyImage}
                   alt="FAMILY REHUB Групповая семейная терапия"
                   className="w-full h-[320px] object-cover transition-all duration-700 group-hover:scale-102"
                   referrerPolicy="no-referrer"

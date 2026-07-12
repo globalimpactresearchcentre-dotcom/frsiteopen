@@ -19,7 +19,7 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
   }, []);
 
   const menuItems = [
-    { label: 'О центре', href: '#about' },
+    { label: 'О центре', href: '#about-center' },
     { label: 'Программы', href: '#programs' },
     { label: 'Калькулятор', href: '#calculator' },
     { label: 'Пройти Тест', href: '#test' },
@@ -29,26 +29,26 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    const wasMobileMenuOpen = isMobileMenuOpen;
+    setIsMobileMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-      setIsMobileMenuOpen(false);
+      if (wasMobileMenuOpen) {
+        // Delay scroll until after the framer-motion exit animation finishes,
+        // otherwise the collapsing menu height fights with smooth scroll
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 350);
+      } else {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
   return (
     <header
       id="app-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 max-w-[100vw] overflow-x-hidden ${isScrolled
         ? 'bg-stone-900/90 backdrop-blur-md border-b border-stone-800 shadow-lg py-3'
         : 'bg-transparent py-5'
         }`}

@@ -26,7 +26,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-stone-950 border-t border-stone-900">
+    <section id="faq" className="scroll-mt-24 py-24 bg-stone-950 border-t border-stone-900">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -49,11 +49,10 @@ export default function FAQSection() {
                 setActiveCategory(cat.id);
                 setExpandedId(null); // Close active when category changes
               }}
-              className={`py-2 px-4 text-xs font-semibold rounded-full border transition-all cursor-pointer ${
-                activeCategory === cat.id
+              className={`py-2 px-4 text-xs font-semibold rounded-full border transition-all cursor-pointer ${activeCategory === cat.id
                   ? 'bg-emerald-600 border-emerald-500 text-white shadow-md'
                   : 'bg-stone-900/30 border-stone-850 text-stone-400 hover:text-white hover:border-stone-700'
-              }`}
+                }`}
             >
               {cat.label}
             </button>

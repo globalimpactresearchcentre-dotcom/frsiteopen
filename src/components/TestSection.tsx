@@ -58,7 +58,7 @@ export default function TestSection({ onOpenConsultation }: TestSectionProps) {
   };
 
   return (
-    <section id="test" className="py-24 bg-stone-900 border-t border-stone-800">
+    <section id="test" className="scroll-mt-24 py-24 bg-stone-900 border-t border-stone-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-3">
@@ -77,21 +77,19 @@ export default function TestSection({ onOpenConsultation }: TestSectionProps) {
           <div className="flex justify-center p-1 bg-stone-950 rounded-2xl max-w-md mx-auto mb-8 border border-stone-800">
             <button
               onClick={() => { setTestType('addiction'); setCurrentStep(-1); }}
-              className={`flex-1 py-3 text-xs md:text-sm font-semibold rounded-xl transition-all ${
-                testType === 'addiction'
+              className={`flex-1 py-3 text-xs md:text-sm font-semibold rounded-xl transition-all ${testType === 'addiction'
                   ? 'bg-emerald-600 text-white shadow-md'
                   : 'text-stone-400 hover:text-white'
-              }`}
+                }`}
             >
               Проверить себя (Зависимость)
             </button>
             <button
               onClick={() => { setTestType('codependency'); setCurrentStep(-1); }}
-              className={`flex-1 py-3 text-xs md:text-sm font-semibold rounded-xl transition-all ${
-                testType === 'codependency'
+              className={`flex-1 py-3 text-xs md:text-sm font-semibold rounded-xl transition-all ${testType === 'codependency'
                   ? 'bg-emerald-600 text-white shadow-md'
                   : 'text-stone-400 hover:text-white'
-              }`}
+                }`}
             >
               Проверить близкого (Созависимость)
             </button>

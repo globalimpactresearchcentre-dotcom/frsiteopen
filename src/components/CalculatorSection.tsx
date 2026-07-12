@@ -53,7 +53,7 @@ export default function CalculatorSection({ onOpenConsultation }: CalculatorSect
   };
 
   return (
-    <section id="calculator" className="py-24 bg-stone-950 border-t border-stone-900">
+    <section id="calculator" className="scroll-mt-24 py-24 bg-stone-950 border-t border-stone-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-3">

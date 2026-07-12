@@ -40,16 +40,7 @@ export default function App() {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -180,7 +171,7 @@ export default function App() {
       </section>
 
       {/* Section: About Center / Family Systemic Therapy */}
-      <section id="about-center" className="py-24 bg-bg-primary">
+      <section id="about-center" className="scroll-mt-24 py-24 bg-bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
@@ -189,7 +180,7 @@ export default function App() {
               <div className="relative bg-bg-secondary border border-border-custom p-4 overflow-hidden group">
                 <img
                   src={therapyImage}
-                  alt="FAMILY REHUB Групповая семейная терапия"
+                  alt="FAMILY REHAB Групповая семейная терапия"
                   className="w-full h-[320px] object-cover transition-all duration-700 group-hover:scale-102"
                   referrerPolicy="no-referrer"
                 />
@@ -274,7 +265,7 @@ export default function App() {
       </section>
 
       {/* Program Directions Quick Preview */}
-      <section id="programs" className="py-24 bg-bg-secondary border-t border-border-custom">
+      <section id="programs" className="scroll-mt-24 py-24 bg-bg-secondary border-t border-border-custom">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent-light text-accent text-xs font-semibold uppercase tracking-wider border border-border-custom mb-3">
@@ -314,12 +305,7 @@ export default function App() {
                       // Custom function to scroll to calculator and preselect program
                       const el = document.querySelector('#calculator');
                       if (el) {
-                        const offset = 80;
-                        const bodyRect = document.body.getBoundingClientRect().top;
-                        const elementRect = el.getBoundingClientRect().top;
-                        const elementPosition = elementRect - bodyRect;
-                        const offsetPosition = elementPosition - offset;
-                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         // Preselect the program in the calculator
                         const event = new CustomEvent('preselectProgram', { detail: prog.id });
                         window.dispatchEvent(event);
@@ -347,7 +333,7 @@ export default function App() {
       <TestSection onOpenConsultation={openConsultation} />
 
       {/* Our Professional Team Grid */}
-      <section id="team" className="py-24 bg-bg-secondary border-t border-border-custom">
+      <section id="team" className="scroll-mt-24 py-24 bg-bg-secondary border-t border-border-custom">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent-light text-accent text-xs font-semibold uppercase tracking-wider border border-border-custom mb-3">
@@ -530,7 +516,7 @@ export default function App() {
               <div>
                 <div className="flex items-center gap-1">
                   <span className="font-serif font-bold text-text-primary text-sm">FAMILY</span>
-                  <span className="bg-accent text-bg-primary text-[10px] font-bold px-1.5 py-0.5 border border-accent">REHUB</span>
+                  <span className="bg-accent text-bg-primary text-[10px] font-bold px-1.5 py-0.5 border border-accent">REHAB</span>
                 </div>
                 <p className="text-[8px] text-text-secondary">Частная наркологическая и психологическая помощь</p>
               </div>
@@ -550,7 +536,7 @@ export default function App() {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t border-border-custom text-[11px] text-text-secondary/75">
-            <p>© {new Date().getFullYear()} FAMILY REHUB. Все права защищены. Информация на сайте не является публичной офертой.</p>
+            <p>© {new Date().getFullYear()} FAMILY REHAB. Все права защищены. Информация на сайте не является публичной офертой.</p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-text-primary transition-colors">Политика конфиденциальности</a>
               <a href="#" className="hover:text-text-primary transition-colors">Согласие на обработку данных</a>

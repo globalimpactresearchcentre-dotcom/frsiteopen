@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Heart, Menu, X, ShieldCheck } from 'lucide-react';
+import { Phone, Menu, X, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import logoImg from '../assets/logo1.png';
 
 interface HeaderProps {
   onOpenConsultation: () => void;
@@ -56,9 +57,13 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-emerald-900/20 group-hover:scale-105 transition-transform">
-              <Heart className="w-5 h-5 text-white" />
+          <a href="#" className="flex items-center gap-3 group">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white flex items-center justify-center shadow-md shadow-emerald-900/15 group-hover:scale-105 transition-transform overflow-hidden p-1 border border-emerald-500/20">
+              <img
+                src={logoImg}
+                alt="FAMILY REHAB"
+                className="w-full h-full object-contain translate-y-0.5 scale-150 transition-transform"
+              />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
@@ -88,7 +93,7 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
           <div className="hidden sm:flex items-center gap-5">
             <div className="text-right">
               <a
-                href="tel:+77711272125"
+                href="tel:+77471502788"
                 className={`flex items-center gap-1.5 font-mono font-bold text-lg transition-colors ${isScrolled ? 'text-emerald-400 hover:text-emerald-300' : 'text-emerald-600 hover:text-emerald-700'
                   }`}
               >
@@ -96,7 +101,7 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
                   <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isScrolled ? 'bg-emerald-400' : 'bg-emerald-600'}`}></span>
                   <span className={`relative inline-flex rounded-full h-2 w-2 ${isScrolled ? 'bg-emerald-500' : 'bg-emerald-600'}`}></span>
                 </span>
-                +7 (771) 127-21-25
+                +7 (747) 150-27-88
               </a>
               <p className={`text-[10px] flex items-center justify-end gap-1 font-sans transition-colors ${isScrolled ? 'text-stone-400' : 'text-stone-600'}`}>
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" /> Анонимно & Бесплатно 24/7
@@ -114,7 +119,7 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
           {/* Mobile menu button */}
           <div className="lg:hidden flex items-center gap-3">
             <a
-              href="tel:+77711272125"
+              href="tel:+7471502788"
               className="sm:hidden p-2 rounded-lg bg-stone-800 text-emerald-400 hover:bg-stone-700 transition-colors"
               title="Позвонить на горячую линию"
             >
@@ -156,10 +161,10 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
               ))}
               <div className="pt-4 border-t border-stone-800 flex flex-col gap-3 px-3">
                 <a
-                  href="tel:+77711272125"
+                  href="tel:+7471502788"
                   className="flex items-center gap-2 font-mono font-bold text-lg text-emerald-400"
                 >
-                  <Phone className="w-5 h-5" /> +7 (771) 127-21-25
+                  <Phone className="w-5 h-5" /> +7 (747) 150-27-88
                 </a>
                 <p className="text-xs text-stone-400">Горячая линия анонимной помощи</p>
                 <button

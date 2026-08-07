@@ -133,7 +133,7 @@ export default function App() {
                 <div className="absolute bottom-6 left-6 right-6 bg-bg-primary/95 border border-border-custom p-5 flex items-center justify-between shadow-sm">
                   <div>
                     <p className="text-[10px] text-text-secondary uppercase tracking-widest font-mono font-bold">Охраняемая территория</p>
-                    <p className="text-text-primary font-bold text-sm mt-0.5">Безопасный стационар в лесу</p>
+                    <p className="text-text-primary font-bold text-sm mt-0.5">Безопасный стационар в предгорье</p>
                   </div>
                   <div className="w-10 h-10 bg-accent-light text-accent flex items-center justify-center border border-border-custom">
                     <Shield className="w-5 h-5" />
@@ -482,10 +482,10 @@ export default function App() {
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <a
-              href="tel:+77711272125"
+              href="tel:+77471502788"
               className="w-full sm:w-auto bg-red-600 hover:bg-red-500 text-bg-primary font-bold py-4.5 px-8 transition-all flex items-center justify-center gap-2 border border-red-600 text-base md:text-lg uppercase tracking-wider"
             >
-              <PhoneCall className="w-5 h-5 animate-pulse" /> +7 (771) 127-21-25
+              <PhoneCall className="w-5 h-5 animate-pulse" /> +7 (747) 150-27-88
             </a>
             <button
               onClick={() => openConsultation('Заявка на срочный выезд помощи 24/7 с футера')}

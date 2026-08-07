@@ -531,9 +531,7 @@ export default function App() {
           </div>
 
           {/* Core Warning Badge for Medical landing (Law compliance) */}
-          <div className="p-4 border border-dashed border-border-custom bg-bg-primary text-center text-[10px] sm:text-xs tracking-wider uppercase font-bold text-text-secondary/80">
-            ИМЕЮТСЯ ПРОТИВОПОКАЗАНИЯ. НЕОБХОДИМА КОНСУЛЬТАЦИЯ СПЕЦИАЛИСТА
-          </div>
+
 
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t border-border-custom text-[11px] text-text-secondary/75">
             <p>© {new Date().getFullYear()} FAMILY REHAB. Все права защищены. Информация на сайте не является публичной офертой.</p>

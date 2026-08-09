@@ -2,6 +2,7 @@ import heroImage from './assets/images/family_rehub_hero_1783502231845.jpg';
 import therapyImage from './assets/images/family_rehub_therapy_1783502249013.jpg';
 import React, { useState } from 'react';
 import Header from './components/Header';
+import Certificates from './components/Certificates';
 import TestSection from './components/TestSection';
 import CalculatorSection from './components/CalculatorSection';
 import MotivationGuide from './components/MotivationGuide';
@@ -322,6 +323,9 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      {/* Certificates & Licenses */}
+      <Certificates />
 
       {/* Motivation Guide Widget */}
       <MotivationGuide onOpenConsultation={openConsultation} />

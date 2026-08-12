@@ -22,7 +22,7 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
   const menuItems = [
     { label: 'О центре', href: '#about-center' },
     { label: 'Программы', href: '#programs' },
-    { label: 'Калькулятор', href: '#calculator' },
+    { label: 'Сертификаты', href: '#certificates' },
     { label: 'Пройти Тест', href: '#test' },
     { label: 'Специалисты', href: '#team' },
     { label: 'FAQ', href: '#faq' },
